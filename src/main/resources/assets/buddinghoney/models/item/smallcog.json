@@ -1,0 +1,7 @@
+{
+  "parent": "honeycomb_industrials:custom/small_cog",
+  "textures": {
+    "1": "honeycomb_industrials:block/small_cog",
+    "particle": "honeycomb_industrials:item/cog_small"
+  }
+}

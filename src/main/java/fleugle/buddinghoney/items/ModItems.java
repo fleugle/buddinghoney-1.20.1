@@ -2,11 +2,11 @@ package fleugle.buddinghoney.items;
 
 import fleugle.buddinghoney.Buddinghoney;
 import fleugle.buddinghoney.items.custom.CogswordItem;
+import fleugle.buddinghoney.items.custom.HoneycombShotgunItem;
 import fleugle.buddinghoney.utility.ModToolMaterial;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
-import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -16,8 +16,13 @@ public class ModItems {
 
     public static final Item BEESTANITE = registerItem("beestanite", new Item(new Item.Settings()));
 
-    public static final Item COGSWORD = registerItem("cogsword", new CogswordItem(ModToolMaterial.BEESTANITE,3.6f, 3.6f,new Item.Settings()));
+    public static final Item BEESTANITE_BULLET = registerItem("beestanite_bullet",  new Item(new Item.Settings()));
 
+    public static final Item COGSWORD = registerItem("cogsword", new CogswordItem(ModToolMaterial.BEESTANITE,2.6f, -2.4f,new Item.Settings(), false));
+
+    public static final Item AMETHYST_COGSWORD = registerItem("amethyst_cogsword", new CogswordItem(ModToolMaterial.BEESTANITE,2.6f, -2.4f,new Item.Settings(), true));
+
+    public static final Item HONEYCOMB_SHOTGUN = registerItem("honeycomb_shotgun", new HoneycombShotgunItem(new Item.Settings(), false));
 
 
 
@@ -37,6 +42,8 @@ public class ModItems {
         //INGREDIENTS TAB ITEMS REGISTRY
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
 
+            entries.add(BEESTANITE);
+
         });
 
         //FOOD_AND_DRINKS TAB ITEMS REGISTRY
@@ -53,6 +60,7 @@ public class ModItems {
 
             //weapons
             entries.add(COGSWORD);
+            entries.add(AMETHYST_COGSWORD);
 
 
             //utility items

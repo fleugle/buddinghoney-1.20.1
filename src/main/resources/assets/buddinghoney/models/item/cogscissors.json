@@ -1,0 +1,6 @@
+{
+  "parent": "honeycomb_industrials:displaysettings/cog_scissors.item",
+  "textures": {
+    "layer0": "honeycomb_industrials:item/cog_scissors"
+  }
+}

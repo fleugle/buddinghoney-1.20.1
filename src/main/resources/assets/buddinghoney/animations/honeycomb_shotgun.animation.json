@@ -1,0 +1,14 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"shoot": {
+			"loop": true
+		},
+		"empty_shoot": {
+			"loop": true
+		},
+		"reload": {
+			"loop": true
+		}
+	}
+}

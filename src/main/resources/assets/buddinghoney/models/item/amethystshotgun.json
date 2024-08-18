@@ -1,0 +1,7 @@
+{
+  "parent": "honeycomb_industrials:custom/honeycomb_shotgun_a",
+  "textures": {
+    "1": "honeycomb_industrials:block/amethyst_shotgun",
+    "particle": "honeycomb_industrials:item/amethyst_shotgoon"
+  }
+}

@@ -1,0 +1,88 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.unknown",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
+			},
+			"bones": [
+				{
+					"name": "right_cogwhele",
+					"pivot": [2, 11.5, 0],
+					"cubes": [
+						{"origin": [-0.5, 9, 0], "size": [5, 5, 0], "uv": [20, 14]}
+					]
+				},
+				{
+					"name": "left_cogwhele",
+					"pivot": [-2, 11.5, 0],
+					"cubes": [
+						{"origin": [-4.5, 9, 0], "size": [5, 5, 0], "uv": [8, 20]}
+					]
+				},
+				{
+					"name": "cog_handles",
+					"pivot": [-1.6, 10, 0.5],
+					"cubes": [
+						{"origin": [0.4, 7, -0.5], "size": [3, 6, 1], "pivot": [1.4, 10, -0.5], "rotation": [0.59917, 0.0725, 4.96384], "uv": [30, 12]},
+						{"origin": [-3.35, 7, -0.5], "size": [3, 6, 1], "pivot": [-1.6, 10, 0.5], "rotation": [0.59917, -0.0725, -4.96384], "uv": [20, 1]}
+					]
+				},
+				{
+					"name": "right_blade",
+					"parent": "cog_handles",
+					"pivot": [2, 11.5, 0.5],
+					"cubes": [
+						{"origin": [1.4, 11, -0.5], "size": [1, 5, 1], "inflate": 0.1, "uv": [1, 24]},
+						{"origin": [0.5, 15, -0.5], "size": [3, 8, 1], "pivot": [2.25, 19, 0], "rotation": [0, 0, -2.5], "uv": [19, 19]},
+						{"origin": [0.5, 15, 0], "size": [4, 10, 0], "pivot": [2.25, 19, 0.5], "rotation": [0, 0, -2.5], "uv": [12, 10]}
+					]
+				},
+				{
+					"name": "left_blade",
+					"pivot": [-1.9, 11.5, -0.5],
+					"cubes": [
+						{"origin": [-3.5, 15, -0.5], "size": [3, 8, 1], "pivot": [-2.25, 19, 0], "rotation": [0, 0, 2.5], "uv": [0, 14]},
+						{"origin": [-4.5, 15, 0], "size": [4, 10, 0], "pivot": [-2.25, 19, 0.5], "rotation": [0, 0, 2.5], "uv": [12, 0]},
+						{"origin": [-2.4, 11, -0.5], "size": [1, 5, 1], "inflate": 0.1, "uv": [1, 24]}
+					]
+				},
+				{
+					"name": "handles",
+					"pivot": [-0.75, 6.5, 0]
+				},
+				{
+					"name": "left_handle",
+					"parent": "handles",
+					"pivot": [-0.75, 6.5, 0],
+					"cubes": [
+						{"origin": [-2.75, 6, 0], "size": [2, 1, 0], "pivot": [-1.25, 6.5, 0], "rotation": [0, 0, 10], "uv": [8, 15]},
+						{"origin": [-3.75, 1, -1], "size": [4, 5, 2], "pivot": [-0.75, 6.5, 0], "rotation": [0, 0, 10], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "right_handel",
+					"parent": "handles",
+					"pivot": [0.75, 6.5, 0],
+					"cubes": [
+						{"origin": [0.75, 6, 0], "size": [2, 1, 0], "pivot": [1.25, 6.5, 0], "rotation": [0, 0, -10], "uv": [7, 14]},
+						{"origin": [-0.25, 1, -1], "size": [4, 5, 2], "pivot": [0.75, 6.5, 0], "rotation": [0, 0, -10], "uv": [0, 7]}
+					]
+				},
+				{
+					"name": "clip",
+					"parent": "handles",
+					"pivot": [-0.5, 7.5, -1],
+					"cubes": [
+						{"origin": [-1.5, 6.5, -0.48], "size": [3, 2, 1], "inflate": 0.1, "uv": [28, 3]}
+					]
+				}
+			]
+		}
+	]
+}

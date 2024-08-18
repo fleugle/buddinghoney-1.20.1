@@ -17,6 +17,9 @@
 	"entrypoints": {
 		"main": [
 			"fleugle.buddinghoney.Buddinghoney"
+		],
+		"client": [
+			"fleugle.buddinghoney.BuddinghoneyClient"
 		]
 	},
 	"mixins": [
