@@ -1,0 +1,36 @@
+{
+	"schemaVersion": 1,
+	"id": "buddinghoney",
+	"version": "${version}",
+	"name": "Budding Honey",
+	"description": "Mod with honey idk ",
+	"authors": [
+		"Fleugle"
+	],
+	"contact": {
+		"homepage": "nah",
+		"sources": "NUH ah"
+	},
+	"license": "very illegal",
+	"icon": "assets/buddinghoney/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"fleugle.buddinghoney.Buddinghoney"
+		]
+	},
+	"mixins": [
+		"buddinghoney.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.15.11",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*",
+		"azurelib":">=2.0.19"
+
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
