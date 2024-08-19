@@ -20,11 +20,15 @@
 		],
 		"client": [
 			"fleugle.buddinghoney.BuddinghoneyClient"
+		],
+		"mm:early_risers":[
+			"fleugle.buddinghoney.early_risers.CogswordEnumAdder"
 		]
 	},
 	"mixins": [
 		"buddinghoney.mixins.json"
 	],
+	"accessWidener" : "buddinghoney.accesswidener",
 	"depends": {
 		"fabricloader": ">=0.15.11",
 		"minecraft": "~1.20.1",

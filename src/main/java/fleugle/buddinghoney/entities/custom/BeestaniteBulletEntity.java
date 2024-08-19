@@ -35,7 +35,7 @@ public class BeestaniteBulletEntity extends ThrownItemEntity {
 	//private final Set<StatusEffectInstance> effects = Sets.newHashSet();
 	private final World world;
 
-	 private Vector3f color = Vec3d.unpackRgb(626262).toVector3f();
+	 private Vector3f color = Vec3d.unpackRgb(125125125).toVector3f();
 
 
 
@@ -55,15 +55,6 @@ public class BeestaniteBulletEntity extends ThrownItemEntity {
 		return null;
 	}
 
-
-	/*public BloodStreamProjectileEntity(World world, double x, double y, double z, PlayerEntity user, boolean shouldNegate) {
-		super(ModEntityTypes.BLOOD_STREAM, x, y, z, world);
-
-		this.shouldNegate = shouldNegate;
-		this.world = world;
-		this.setNoGravity(true);
-
-	}*/
 
 	public BeestaniteBulletEntity(World world, LivingEntity owner) {
 		super(ModEntityTypes.BEESTANITE_BULLET, owner, world);
@@ -91,18 +82,6 @@ public class BeestaniteBulletEntity extends ThrownItemEntity {
 		Vec3d vec3d = user.getVelocity();
 		this.setVelocity(this.getVelocity().add(vec3d.x, user.isOnGround() ? 0.0 : vec3d.y, vec3d.z));
 	}
-
-	/*//@Override
-	public void setProperties(Entity user, float pitch, float yaw, float roll, float modifierZ, float modifierXYZ, boolean shouldNegate) {
-		this.setProperties(user, pitch, yaw, roll, modifierZ, modifierXYZ);
-		//this.shouldNegate = shouldNegate;
-	}*/
-
-
-	/*public boolean shouldRotateClockwise() {
-		return this.shouldNegate;
-	}*/
-
 
 	@Override
 	protected void onCollision(@NotNull HitResult hitResult) {

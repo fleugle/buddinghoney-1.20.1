@@ -78,15 +78,24 @@ public class HoneycombShotgunItem extends AbstractGunItem {
     @Override
     public void createProjectile(World world, PlayerEntity shooter, ItemStack stackWithGun){
 
-        BeestaniteBulletEntity bulletEntity = new BeestaniteBulletEntity(world, shooter);
-        bulletEntity.setItem(stackWithGun);
-        bulletEntity.setBulletProperties(shooter, shooter.getPitch(), shooter.getYaw() + 3f, 1.0F, 3.5F, 0F);
-        world.spawnEntity(bulletEntity);
+        if (getAmmoAmount(stackWithGun) == 2) {
+            BeestaniteBulletEntity bulletEntity = new BeestaniteBulletEntity(world, shooter);
+            bulletEntity.setItem(stackWithGun);
+            bulletEntity.setBulletProperties(shooter, shooter.getPitch(), shooter.getYaw() + 3f, 1.0F, 3.5F, 0F);
+            world.spawnEntity(bulletEntity);
 
-        BeestaniteBulletEntity bulletEntity2 = new BeestaniteBulletEntity(world, shooter);
-        bulletEntity2.setItem(stackWithGun);
-        bulletEntity2.setBulletProperties(shooter, shooter.getPitch(), shooter.getYaw() - 3f, 1.0F, 3.5F, 0F);
-        world.spawnEntity(bulletEntity2);
+            BeestaniteBulletEntity bulletEntity2 = new BeestaniteBulletEntity(world, shooter);
+            bulletEntity2.setItem(stackWithGun);
+            bulletEntity2.setBulletProperties(shooter, shooter.getPitch(), shooter.getYaw() - 3f, 1.0F, 3.5F, 0F);
+            world.spawnEntity(bulletEntity2);
+        }
+        else if (getAmmoAmount(stackWithGun) == 1) {
+            BeestaniteBulletEntity bulletEntity = new BeestaniteBulletEntity(world, shooter);
+            bulletEntity.setItem(stackWithGun);
+            bulletEntity.setBulletProperties(shooter, shooter.getPitch(), shooter.getYaw(), 1.0F, 3.5F, 0F);
+            world.spawnEntity(bulletEntity);
+
+        }
 
 
     }

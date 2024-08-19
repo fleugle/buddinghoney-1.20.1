@@ -51,6 +51,7 @@ public class ModItems {
             List.of(new Identifier("item/empty_slot_amethyst_shard"))
     ));
 
+    public static final Item AMETHYST_CATALYST = registerItem("amethyst_catalyst", new Item(new Item.Settings()));
 
 
     private static Item registerItem(String name, Item item){

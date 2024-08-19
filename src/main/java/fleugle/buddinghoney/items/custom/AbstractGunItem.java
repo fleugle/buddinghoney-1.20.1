@@ -164,6 +164,20 @@ public abstract class AbstractGunItem extends Item implements GeoItem {
 
 	}
 
+	private ItemStack getInventoryStack(PlayerEntity player, ItemStack ammoItemStack, int needs) {
+		ItemStack trueStack = null;
+
+		for (int i = 0; i < player.getInventory().size(); i++) {
+			ItemStack inventoryStack = player.getInventory().getStack(i);
+			if (inventoryStack.getItem() == ammoItemStack.getItem() && inventoryStack.getCount() >= needs) {
+				trueStack = inventoryStack;
+				break; // Exit the loop after finding and decrementing
+			}
+		}
+
+		return trueStack;
+	}
+
 	public void tryToReloadGun(World world, PlayerEntity shooter, ItemStack stackWithGun, ItemStack mainhand_stack, ItemStack offhand_stack, Hand hand){
 
 		int ammoAmount = getAmmoAmount(stackWithGun);
@@ -172,7 +186,16 @@ public abstract class AbstractGunItem extends Item implements GeoItem {
 			if (!hasFullAmmoInWeapon(stackWithGun)){
 
 				int howMuchAmmoItNeeds = maxAmmo - ammoAmount;
-				if(mainhand_stack.getItem() == getAmmoItem()){
+
+				ItemStack stackWithAmmo = getInventoryStack(shooter, new ItemStack(getAmmoItem()), 1);
+
+				if((howMuchAmmoItNeeds == maxAmmo)){
+					int howMuchAmmoIsPresent = stackWithAmmo.getCount();
+					consumeNeededAmountOfAmmoAndPutItInTheGun(shooter,stackWithGun, stackWithAmmo, howMuchAmmoItNeeds, howMuchAmmoIsPresent);
+					SoundsManager.playPlayersSoundFromPlayer(shooter, getReloadSound(), 1f);
+					triggerAnim(shooter, GeoItem.getOrAssignId(stackWithGun, (ServerWorld) world), "shooting_controller", "reload");
+					shooter.getItemCooldownManager().set(this, this.reloadTime);
+				} else if(mainhand_stack.getItem() == getAmmoItem()){
 
 					int howMuchAmmoIsPresent = mainhand_stack.getCount();
 					consumeNeededAmountOfAmmoAndPutItInTheGun(shooter,stackWithGun, mainhand_stack, howMuchAmmoItNeeds, howMuchAmmoIsPresent);
