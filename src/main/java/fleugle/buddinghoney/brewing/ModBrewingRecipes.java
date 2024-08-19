@@ -8,6 +8,7 @@ public class ModBrewingRecipes {
 
     public static void registerBrewingRecipes(){
         BrewingRecipeRegistry.registerItemRecipe(Items.AMETHYST_SHARD, Items.HONEY_BOTTLE, ModItems.AMETHYST_CATALYST);
+        BrewingRecipeRegistry.registerItemRecipe(Items.HONEY_BOTTLE, Items.AMETHYST_SHARD, ModItems.AMETHYST_CATALYST);
     }
 
 }

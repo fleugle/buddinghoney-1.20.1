@@ -4,3 +4,5 @@ extendable class net/minecraft/enchantment/EnchantmentTarget
 
 accessible class net/minecraft/recipe/BrewingRecipeRegistry$Recipe
 
+accessible class net/minecraft/screen/BrewingStandScreenHandler$PotionSlot
+

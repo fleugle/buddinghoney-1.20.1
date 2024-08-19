@@ -3,7 +3,8 @@
 	"package": "fleugle.buddinghoney.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-
+		"BrewingRecipeRegistryMixin",
+		"BrewingStandBlockEntityMixin"
 	],
 	"client": [
 		"PlayerEntityRendererMixin"
