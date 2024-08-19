@@ -22,16 +22,12 @@ public class PotionSlotMixin {
         validItemsList.add(Items.AMETHYST_SHARD);
         validItemsList.add(Items.HONEY_BOTTLE);
 
-        // Original check plus new custom items
-        if (stack.isOf(Items.POTION) ||
+
+        cir.setReturnValue(stack.isOf(Items.POTION) ||
                 stack.isOf(Items.SPLASH_POTION) ||
                 stack.isOf(Items.LINGERING_POTION) ||
                 stack.isOf(Items.GLASS_BOTTLE) ||
-                validItemsList.contains(stack.getItem())) {
+                validItemsList.contains(stack.getItem()));
 
-            cir.setReturnValue(true);
-        } else {
-            cir.setReturnValue(false);
-        }
     }
 }

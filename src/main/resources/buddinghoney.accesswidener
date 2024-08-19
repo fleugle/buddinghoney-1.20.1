@@ -2,7 +2,14 @@ accessWidener v2 named
 
 extendable class net/minecraft/enchantment/EnchantmentTarget
 
+
+
+
+
 accessible class net/minecraft/recipe/BrewingRecipeRegistry$Recipe
 
 accessible class net/minecraft/screen/BrewingStandScreenHandler$PotionSlot
 
+accessible field net/minecraft/recipe/BrewingRecipeRegistry$Recipe input Ljava/lang/Object;
+
+accessible field net/minecraft/recipe/BrewingRecipeRegistry$Recipe ingredient Lnet/minecraft/recipe/Ingredient;
