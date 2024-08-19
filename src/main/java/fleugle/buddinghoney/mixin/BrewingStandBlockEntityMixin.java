@@ -1,6 +1,7 @@
 package fleugle.buddinghoney.mixin;
 
 
+import fleugle.buddinghoney.utility.BrewingRecipesHelper;
 import net.minecraft.block.entity.BrewingStandBlockEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -35,40 +36,31 @@ public class BrewingStandBlockEntityMixin {
 
     @Inject(at = @At("HEAD"), method = "isValid", cancellable = true)
     public void isValid(int slot, ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
-        List<Item> validItemsList = new ArrayList<>();
+        /*List<Item> validItemsList = new ArrayList<>();
 
         validItemsList.add(Items.AMETHYST_SHARD);
-        validItemsList.add(Items.HONEY_BOTTLE);
+        validItemsList.add(Items.HONEY_BOTTLE);*/
         //validItemsList.add(Items.AMETHYST_SHARD);
 
 
         if (slot == 3) {
             cir.setReturnValue(BrewingRecipeRegistry.isValidIngredient(stack));
         } else {
-            boolean debug = slot == 4
-                    ? stack.isOf(Items.BLAZE_POWDER)
-                    : (stack.isOf(Items.POTION) || stack.isOf(Items.SPLASH_POTION) || stack.isOf(Items.LINGERING_POTION) || stack.isOf(Items.GLASS_BOTTLE)
-                    || validItemsList.contains(stack.getItem()))
-                    && this.getStack(slot).isEmpty();
-
             cir.setReturnValue(slot == 4
                     ? stack.isOf(Items.BLAZE_POWDER)
                     : (stack.isOf(Items.POTION) || stack.isOf(Items.SPLASH_POTION) || stack.isOf(Items.LINGERING_POTION) || stack.isOf(Items.GLASS_BOTTLE)
-                    || validItemsList.contains(stack.getItem()))
+                    || BrewingRecipesHelper.getValidBrewingInputList().contains(stack.getItem()))
                     && this.getStack(slot).isEmpty());
         }
     }
 
-    @Inject(method = "canInsert", at = @At("HEAD"), cancellable = true)
+    /*@Inject(method = "canInsert", at = @At("HEAD"), cancellable = true)
     private void injectCanInsertItem(int slot, ItemStack stack, Direction dir, CallbackInfoReturnable<Boolean> cir) {
         // Check if the item is your custom item
-        List<Item> validItemsList = new ArrayList<>();
 
-        validItemsList.add(Items.AMETHYST_SHARD);
-        validItemsList.add(Items.HONEY_BOTTLE);
         if (validItemsList.contains(stack.getItem())) {
             cir.setReturnValue(true);
         }
-    }
+    }*/
 
 }

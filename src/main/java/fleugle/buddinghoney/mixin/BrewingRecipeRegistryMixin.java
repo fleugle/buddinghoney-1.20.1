@@ -2,6 +2,7 @@ package fleugle.buddinghoney.mixin;
 
 
 import com.google.common.collect.Lists;
+import fleugle.buddinghoney.utility.BrewingRecipesHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
@@ -86,7 +87,7 @@ public class BrewingRecipeRegistryMixin {
 
     @Inject(at = @At("HEAD"), method = "hasRecipe", cancellable = true)
     private static void hasRecipe(ItemStack input, ItemStack ingredient, CallbackInfoReturnable<Boolean> cir) {
-        cir.setReturnValue(!POTION_TYPE_PREDICATE.test(input) ? false : hasItemRecipe(input, ingredient) || hasPotionRecipe(input, ingredient));
+        cir.setReturnValue((POTION_TYPE_PREDICATE.test(input) || (BrewingRecipesHelper.getValidBrewingInputList().contains(input.getItem()) && BrewingRecipesHelper.getValidBrewingIngredientList().contains(ingredient.getItem()))) && (hasItemRecipe(input, ingredient) || hasPotionRecipe(input, ingredient)));
     }
 
 }
