@@ -26,7 +26,7 @@ public class ModItems {
 
     public static final Item COGSWORD = registerItem("cogsword", new CogswordItem(ModToolMaterial.BEESTANITE,2.6f, -2.4f,new Item.Settings(), false));
 
-    public static final Item AMETHYST_COGSWORD = registerItem("amethyst_cogsword.json", new CogswordItem(ModToolMaterial.BEESTANITE,2.6f, -2.4f,new Item.Settings(), true));
+    public static final Item AMETHYST_COGSWORD = registerItem("amethyst_cogsword", new CogswordItem(ModToolMaterial.BEESTANITE,2.6f, -2.4f,new Item.Settings(), true));
 
     public static final Item HONEYCOMB_SHOTGUN = registerItem("honeycomb_shotgun", new HoneycombShotgunItem(new Item.Settings(), false));
 

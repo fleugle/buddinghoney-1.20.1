@@ -31,7 +31,7 @@ import net.minecraft.world.World;
 import java.util.List;
 
 
-public abstract class GunItem extends Item implements GeoItem {
+public abstract class AbstractGunItem extends Item implements GeoItem {
 	public final Hand mainHand = Hand.MAIN_HAND;
 	public final Hand offHand = Hand.OFF_HAND;
 	public AnimatableInstanceCache getAnimatableInstanceCache() {
@@ -67,7 +67,7 @@ public abstract class GunItem extends Item implements GeoItem {
 
 
 
-	public GunItem(
+	public AbstractGunItem(
 
 		int maxAmmo,
 		int shootingDelay,

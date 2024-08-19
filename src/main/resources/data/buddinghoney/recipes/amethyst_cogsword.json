@@ -1,16 +1,15 @@
 {
   "type": "minecraft:smithing_transform",
-  "template": {
-    "item": "buddinghoney:amethyst_upgrade_smithing_template"
-
+  "addition": {
+    "item": "minecraft:amethyst_shard"
   },
   "base": {
     "item": "buddinghoney:cogsword"
   },
-  "addition": {
-    "item": "minecraft:amethyst_shard"
-  },
   "result": {
     "item": "buddinghoney:amethyst_cogsword"
+  },
+  "template": {
+    "item": "buddinghoney:amethyst_upgrade_smithing_template"
   }
 }

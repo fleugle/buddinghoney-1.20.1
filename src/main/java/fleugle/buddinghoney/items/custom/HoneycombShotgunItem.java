@@ -25,7 +25,7 @@ import net.minecraft.world.World;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-public class HoneycombShotgunItem extends GunItem{
+public class HoneycombShotgunItem extends AbstractGunItem {
 
     boolean isAmethyst;
 
@@ -80,12 +80,12 @@ public class HoneycombShotgunItem extends GunItem{
 
         BeestaniteBulletEntity bulletEntity = new BeestaniteBulletEntity(world, shooter);
         bulletEntity.setItem(stackWithGun);
-        bulletEntity.setBulletProperties(shooter, shooter.getPitch(), shooter.getYaw() + 3f, 1.0F, 3F, 0F);
+        bulletEntity.setBulletProperties(shooter, shooter.getPitch(), shooter.getYaw() + 3f, 1.0F, 3.5F, 0F);
         world.spawnEntity(bulletEntity);
 
         BeestaniteBulletEntity bulletEntity2 = new BeestaniteBulletEntity(world, shooter);
         bulletEntity2.setItem(stackWithGun);
-        bulletEntity2.setBulletProperties(shooter, shooter.getPitch(), shooter.getYaw() - 3f, 1.0F, 3F, 0F);
+        bulletEntity2.setBulletProperties(shooter, shooter.getPitch(), shooter.getYaw() - 3f, 1.0F, 3.5F, 0F);
         world.spawnEntity(bulletEntity2);
 
 
@@ -104,7 +104,7 @@ public class HoneycombShotgunItem extends GunItem{
 
                 createFiringParticles(world, shooter);
 
-                if (!shooter.getAbilities().creativeMode || ifHasInfinityEnchantment == 0) {
+                if (!shooter.getAbilities().creativeMode && ifHasInfinityEnchantment == 0) {
                     setAmmoAmount(stackWithGun, getAmmoAmount(stackWithGun) - 2);
                 }
                 triggerAnim(shooter, GeoItem.getOrAssignId(stackWithGun, (ServerWorld) world), "shooting_controller", "shoot");
