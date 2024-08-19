@@ -16,4 +16,9 @@ public class ModEntityTypes {
             new Identifier(Buddinghoney.MOD_ID, "beestanite_bullet"),
             FabricEntityTypeBuilder.<BeestaniteBulletEntity>create(SpawnGroup.MISC, BeestaniteBulletEntity:: new)
                     .dimensions(EntityDimensions.fixed(0.5f, 0.5f)).build());
+
+    public static final EntityType<BeestaniteBulletEntity> AMETHYST_BULLET = Registry.register(Registries.ENTITY_TYPE,
+            new Identifier(Buddinghoney.MOD_ID, "amethyst_bullet"),
+            FabricEntityTypeBuilder.<BeestaniteBulletEntity>create(SpawnGroup.MISC, BeestaniteBulletEntity:: new)
+                    .dimensions(EntityDimensions.fixed(0.5f, 0.5f)).build());
 }

@@ -13,6 +13,8 @@ public class ModBrewingRecipes {
         BrewingRecipeRegistry.registerItemRecipe(Items.HONEY_BOTTLE, Items.AMETHYST_SHARD, ModItems.AMETHYST_CATALYST);
         BrewingRecipesHelper.addToValidBrewingIngredientList(Items.AMETHYST_SHARD);
         BrewingRecipesHelper.addToValidBrewingInputList(Items.HONEY_BOTTLE);
+
+
     }
 
 }

@@ -1,9 +1,7 @@
 package fleugle.buddinghoney.entities.custom;
 
-import com.google.common.collect.Sets;
 import fleugle.buddinghoney.Buddinghoney;
 import fleugle.buddinghoney.entities.ModEntityTypes;
-import fleugle.buddinghoney.utility.SoundsManager;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
@@ -11,7 +9,6 @@ import net.minecraft.block.entity.EndGatewayBlockEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileUtil;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
@@ -28,18 +25,16 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
 import org.joml.Vector3f;
 
-import java.util.Set;
-
-public class BeestaniteBulletEntity extends ThrownItemEntity {
+public class AmethystBulletEntity extends ThrownItemEntity {
 	private PlayerEntity user = null;
 	//private final Set<StatusEffectInstance> effects = Sets.newHashSet();
 	private final World world;
 
-	 private Vector3f color = new Vector3f(0.749f, 0.557f, 0.243f);
+	 private Vector3f color = new Vector3f(0.835f, 0.412f, 0.839f);
 
 
 
-	public BeestaniteBulletEntity(EntityType<? extends ThrownItemEntity> entityType, World world) {
+	public AmethystBulletEntity(EntityType<? extends ThrownItemEntity> entityType, World world) {
 		super(entityType, world);
 
 
@@ -56,8 +51,8 @@ public class BeestaniteBulletEntity extends ThrownItemEntity {
 	}
 
 
-	public BeestaniteBulletEntity(World world, LivingEntity owner) {
-		super(ModEntityTypes.BEESTANITE_BULLET, owner, world);
+	public AmethystBulletEntity(World world, LivingEntity owner) {
+		super(ModEntityTypes.AMETHYST_BULLET, owner, world);
 
 
 

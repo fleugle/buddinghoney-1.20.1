@@ -24,11 +24,15 @@ public class ModItems {
 
     public static final Item BEESTANITE_BULLET = registerItem("beestanite_bullet",  new Item(new Item.Settings()));
 
+    public static final Item AMETHYST_BULLET = registerItem("amethyst_bullet",  new Item(new Item.Settings()));
+
     public static final Item COGSWORD = registerItem("cogsword", new CogswordItem(ModToolMaterial.BEESTANITE,2.6f, -2.4f,new Item.Settings(), false));
 
     public static final Item AMETHYST_COGSWORD = registerItem("amethyst_cogsword", new CogswordItem(ModToolMaterial.BEESTANITE,2.6f, -2.4f,new Item.Settings(), true));
 
     public static final Item HONEYCOMB_SHOTGUN = registerItem("honeycomb_shotgun", new HoneycombShotgunItem(new Item.Settings(), false));
+
+    public static final Item AMETHYST_SHOTGUN = registerItem("amethyst_shotgun", new HoneycombShotgunItem(new Item.Settings(), true));
 
 
     public static final Item AMETHYST_UPGRADE_SMITHING_TEMPLATE = registerItem("amethyst_upgrade_smithing_template", new SmithingTemplateItem(
@@ -92,6 +96,7 @@ public class ModItems {
             entries.add(AMETHYST_COGSWORD);
 
             entries.add(HONEYCOMB_SHOTGUN);
+            entries.add(BEESTANITE_BULLET);
 
 
             //utility items

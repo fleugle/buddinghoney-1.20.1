@@ -1,6 +1,8 @@
 package fleugle.buddinghoney.items.custom;
 
+import fleugle.buddinghoney.entities.custom.AmethystBulletEntity;
 import fleugle.buddinghoney.entities.custom.BeestaniteBulletEntity;
+import fleugle.buddinghoney.geo.renderers.AmethystShotgunItemRenderer;
 import fleugle.buddinghoney.geo.renderers.HoneycombShotgunItemRenderer;
 import fleugle.buddinghoney.items.ModItems;
 import fleugle.buddinghoney.sound_events.ModSoundEvents;
@@ -56,17 +58,23 @@ public class HoneycombShotgunItem extends AbstractGunItem {
         if (!isAmethyst) {
             return ModItems.BEESTANITE_BULLET;
         }
-        else return Items.AMETHYST_SHARD;
+        else return ModItems.AMETHYST_BULLET;
     }
 
     @Override
     public SoundEvent getShootingSound(){
-        return ModSoundEvents.DEFAULT_SHOTGUN_SHOOT;
+        if (!isAmethyst) {
+            return ModSoundEvents.DEFAULT_SHOTGUN_SHOOT;
+        }
+        else return ModSoundEvents.AMETHYST_SHOTGUN_SHOOT;
     }
 
     @Override
     public SoundEvent getReloadSound(){
-        return ModSoundEvents.DEFAULT_SHOTGUN_RELOAD;
+        if (!isAmethyst) {
+            return ModSoundEvents.DEFAULT_SHOTGUN_RELOAD;
+        }
+        else  return ModSoundEvents.AMETHYST_SHOTGUN_RELOAD;
     }
 
     @Override
@@ -78,26 +86,58 @@ public class HoneycombShotgunItem extends AbstractGunItem {
     @Override
     public void createProjectile(World world, PlayerEntity shooter, ItemStack stackWithGun){
 
-        if (getAmmoAmount(stackWithGun) == 2) {
-            BeestaniteBulletEntity bulletEntity = new BeestaniteBulletEntity(world, shooter);
-            bulletEntity.setItem(stackWithGun);
-            bulletEntity.setBulletProperties(shooter, shooter.getPitch(), shooter.getYaw() + 3f, 1.0F, 3.5F, 0F);
-            world.spawnEntity(bulletEntity);
+        summonBullets(world,shooter,stackWithGun,isAmethyst,getAmmoAmount(stackWithGun));
 
+
+    }
+
+    public void summonBullets(World world, PlayerEntity shooter, ItemStack stackWithGun, boolean isAmethyst, int spawnCount){
+        if(!isAmethyst){
+            BeestaniteBulletEntity bulletEntity = new BeestaniteBulletEntity(world, shooter);
             BeestaniteBulletEntity bulletEntity2 = new BeestaniteBulletEntity(world, shooter);
-            bulletEntity2.setItem(stackWithGun);
-            bulletEntity2.setBulletProperties(shooter, shooter.getPitch(), shooter.getYaw() - 3f, 1.0F, 3.5F, 0F);
-            world.spawnEntity(bulletEntity2);
+            switch (spawnCount){
+
+                case 1:
+                    bulletEntity.setItem(stackWithGun);
+                    bulletEntity.setBulletProperties(shooter, shooter.getPitch(), shooter.getYaw(), 1.0F, 3.5F, 0F);
+                    world.spawnEntity(bulletEntity);
+                    break;
+                case 2:
+
+                    bulletEntity.setItem(stackWithGun);
+                    bulletEntity.setBulletProperties(shooter, shooter.getPitch(), shooter.getYaw() + 3f, 1.0F, 3.5F, 0F);
+                    world.spawnEntity(bulletEntity);
+
+                    bulletEntity2.setItem(stackWithGun);
+                    bulletEntity2.setBulletProperties(shooter, shooter.getPitch(), shooter.getYaw() - 3f, 1.0F, 3.5F, 0F);
+                    world.spawnEntity(bulletEntity2);
+                    break;
+
+            }
         }
-        else if (getAmmoAmount(stackWithGun) == 1) {
-            BeestaniteBulletEntity bulletEntity = new BeestaniteBulletEntity(world, shooter);
-            bulletEntity.setItem(stackWithGun);
-            bulletEntity.setBulletProperties(shooter, shooter.getPitch(), shooter.getYaw(), 1.0F, 3.5F, 0F);
-            world.spawnEntity(bulletEntity);
+        else {
+            AmethystBulletEntity bulletEntity = new AmethystBulletEntity(world, shooter);
+            AmethystBulletEntity bulletEntity2 = new AmethystBulletEntity(world, shooter);
+            switch (spawnCount){
 
+                case 1:
+                    bulletEntity.setItem(stackWithGun);
+                    bulletEntity.setBulletProperties(shooter, shooter.getPitch(), shooter.getYaw(), 1.0F, 3.5F, 0F);
+                    world.spawnEntity(bulletEntity);
+                    break;
+                case 2:
+
+                    bulletEntity.setItem(stackWithGun);
+                    bulletEntity.setBulletProperties(shooter, shooter.getPitch(), shooter.getYaw() + 3f, 1.0F, 3.5F, 0F);
+                    world.spawnEntity(bulletEntity);
+
+                    bulletEntity2.setItem(stackWithGun);
+                    bulletEntity2.setBulletProperties(shooter, shooter.getPitch(), shooter.getYaw() - 3f, 1.0F, 3.5F, 0F);
+                    world.spawnEntity(bulletEntity2);
+                    break;
+
+            }
         }
-
-
     }
 
     public void projectileShoot(World world, PlayerEntity shooter, ItemStack stackWithGun, Hand hand){
@@ -177,14 +217,22 @@ public class HoneycombShotgunItem extends AbstractGunItem {
         consumer.accept(new RenderProvider() {
             // Your render class made above
             private HoneycombShotgunItemRenderer renderer = null;
+            private AmethystShotgunItemRenderer renderer2 = null;
 
             @Override
             public BuiltinModelItemRenderer getCustomRenderer() {
                 // Check if renderer is null, create a new instance if so
-                if (renderer == null)
-                    return new HoneycombShotgunItemRenderer();
+                if (!isAmethyst) {
+                    if (renderer == null)
+                        return new HoneycombShotgunItemRenderer();
+                }
+                else if (renderer2 == null)
+                    return new AmethystShotgunItemRenderer();
                 // Return the existing renderer if it's not null
-                return this.renderer;
+                if (!isAmethyst) {
+                    return this.renderer;
+                }
+                else return this.renderer2;
             }
         });
     }
