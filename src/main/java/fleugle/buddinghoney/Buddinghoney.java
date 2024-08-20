@@ -4,6 +4,7 @@ import com.chocohead.mm.api.ClassTinkerers;
 import fleugle.buddinghoney.brewing.ModBrewingRecipes;
 import fleugle.buddinghoney.enchantments.ModEnchantments;
 import fleugle.buddinghoney.items.ModItems;
+import fleugle.buddinghoney.particles.ModParticleTypes;
 import fleugle.buddinghoney.sound_events.ModSoundEvents;
 import fleugle.buddinghoney.status_effects.ModStatusEffects;
 import fleugle.buddinghoney.utility.AttackEventHandler;
@@ -45,6 +46,8 @@ public class Buddinghoney implements ModInitializer {
 		EnchantmentTarget target = ClassTinkerers.getEnum(EnchantmentTarget.class, "COGSWORD");
 		LOGGER.info("Can enchant cock-sword? " + target.isAcceptableItem(ModItems.COGSWORD));
 		LOGGER.info("And what about cock-sword made of amethysts? " + target.isAcceptableItem(ModItems.AMETHYST_COGSWORD));
+
+		ModParticleTypes.initialiseModParticleTypes();
 
 
 		LOGGER.info("People say honey is for loosers in pvp? HAHAHAHA, it's not the purpose! Honey mixed with amethyst is a drug! So the reason is drug dealing, yippee! (Goodbye high-school hello drug dealing!)");

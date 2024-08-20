@@ -17,7 +17,6 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.stat.Stats;
@@ -27,19 +26,19 @@ import net.minecraft.world.World;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-public class HoneycombShotgunItem extends AbstractGunItem {
+public class AmethystShotgunItem extends AbstractGunItem {
 
     boolean isAmethyst;
 
     //CONSTRUCTOR\\
-    public HoneycombShotgunItem(Settings properties, boolean isAmethyst) {
+    public AmethystShotgunItem(Settings properties, boolean isAmethyst) {
         super(
                 2,
                 10,
                 80,
                 "§dYou need to charge it",
-                "§2 - Deals 5 damage. Applies \"Cogged\" effect on hit.",
-                "§2 - Beestanite Bullet",
+                "§2 - Deals 5 damage. Applies \"Budding\" effect on hit.",
+                "§2 - Amethyst Bullet",
                 properties);
         SingletonGeoAnimatable.registerSyncedAnimatable(this);
 

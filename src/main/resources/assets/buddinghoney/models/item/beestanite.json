@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "honeycomb_industrials:item/e"
+    "layer0": "budding_honey:item/e"
   }
 }

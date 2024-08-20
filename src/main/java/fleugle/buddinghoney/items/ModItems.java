@@ -1,6 +1,7 @@
 package fleugle.buddinghoney.items;
 
 import fleugle.buddinghoney.Buddinghoney;
+import fleugle.buddinghoney.items.custom.AmethystShotgunItem;
 import fleugle.buddinghoney.items.custom.CogswordItem;
 import fleugle.buddinghoney.items.custom.HoneycombShotgunItem;
 import fleugle.buddinghoney.utility.ModToolMaterial;
@@ -32,7 +33,7 @@ public class ModItems {
 
     public static final Item HONEYCOMB_SHOTGUN = registerItem("honeycomb_shotgun", new HoneycombShotgunItem(new Item.Settings(), false));
 
-    public static final Item AMETHYST_SHOTGUN = registerItem("amethyst_shotgun", new HoneycombShotgunItem(new Item.Settings(), true));
+    public static final Item AMETHYST_SHOTGUN = registerItem("amethyst_shotgun", new AmethystShotgunItem(new Item.Settings(), true));
 
 
     public static final Item AMETHYST_UPGRADE_SMITHING_TEMPLATE = registerItem("amethyst_upgrade_smithing_template", new SmithingTemplateItem(
@@ -97,6 +98,9 @@ public class ModItems {
 
             entries.add(HONEYCOMB_SHOTGUN);
             entries.add(BEESTANITE_BULLET);
+
+            entries.add(AMETHYST_SHOTGUN);
+            entries.add(AMETHYST_BULLET);
 
 
             //utility items

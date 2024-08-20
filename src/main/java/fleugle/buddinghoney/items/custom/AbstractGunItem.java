@@ -189,27 +189,31 @@ public abstract class AbstractGunItem extends Item implements GeoItem {
 
 				ItemStack stackWithAmmo = getInventoryStack(shooter, new ItemStack(getAmmoItem()), 1);
 
-				if (stackWithAmmo != null){
-					if ((howMuchAmmoItNeeds == maxAmmo)) {
-						int howMuchAmmoIsPresent = stackWithAmmo.getCount();
-						consumeNeededAmountOfAmmoAndPutItInTheGun(shooter, stackWithGun, stackWithAmmo, howMuchAmmoItNeeds, howMuchAmmoIsPresent);
-						SoundsManager.playPlayersSoundFromPlayer(shooter, getReloadSound(), 1f);
-						triggerAnim(shooter, GeoItem.getOrAssignId(stackWithGun, (ServerWorld) world), "shooting_controller", "reload");
-						shooter.getItemCooldownManager().set(this, this.reloadTime);
-					} else if (mainhand_stack.getItem() == getAmmoItem()) {
+				if (!shooter.getAbilities().creativeMode) {
+					if (stackWithAmmo != null) {
+						if ((howMuchAmmoItNeeds == maxAmmo)) {
+							int howMuchAmmoIsPresent = stackWithAmmo.getCount();
+							consumeNeededAmountOfAmmoAndPutItInTheGun(shooter, stackWithGun, stackWithAmmo, howMuchAmmoItNeeds, howMuchAmmoIsPresent);
+							SoundsManager.playPlayersSoundFromPlayer(shooter, getReloadSound(), 1f);
+							triggerAnim(shooter, GeoItem.getOrAssignId(stackWithGun, (ServerWorld) world), "shooting_controller", "reload");
+							shooter.getItemCooldownManager().set(this, this.reloadTime);
+						} else if (mainhand_stack.getItem() == getAmmoItem()) {
 
-						int howMuchAmmoIsPresent = mainhand_stack.getCount();
-						consumeNeededAmountOfAmmoAndPutItInTheGun(shooter, stackWithGun, mainhand_stack, howMuchAmmoItNeeds, howMuchAmmoIsPresent);
-						SoundsManager.playPlayersSoundFromPlayer(shooter, getReloadSound(), 1f);
-						triggerAnim(shooter, GeoItem.getOrAssignId(stackWithGun, (ServerWorld) world), "shooting_controller", "reload");
-						shooter.getItemCooldownManager().set(this, this.reloadTime);
-					} else if (offhand_stack.getItem() == getAmmoItem()) {
+							int howMuchAmmoIsPresent = mainhand_stack.getCount();
+							consumeNeededAmountOfAmmoAndPutItInTheGun(shooter, stackWithGun, mainhand_stack, howMuchAmmoItNeeds, howMuchAmmoIsPresent);
+							SoundsManager.playPlayersSoundFromPlayer(shooter, getReloadSound(), 1f);
+							triggerAnim(shooter, GeoItem.getOrAssignId(stackWithGun, (ServerWorld) world), "shooting_controller", "reload");
+							shooter.getItemCooldownManager().set(this, this.reloadTime);
+						} else if (offhand_stack.getItem() == getAmmoItem()) {
 
-						int howMuchAmmoIsPresent = offhand_stack.getCount();
-						consumeNeededAmountOfAmmoAndPutItInTheGun(shooter, stackWithGun, offhand_stack, howMuchAmmoItNeeds, howMuchAmmoIsPresent);
-						SoundsManager.playPlayersSoundFromPlayer(shooter, getReloadSound(), 1f);
-						triggerAnim(shooter, GeoItem.getOrAssignId(stackWithGun, (ServerWorld) world), "shooting_controller", "reload");
-						shooter.getItemCooldownManager().set(this, this.reloadTime);
+							int howMuchAmmoIsPresent = offhand_stack.getCount();
+							consumeNeededAmountOfAmmoAndPutItInTheGun(shooter, stackWithGun, offhand_stack, howMuchAmmoItNeeds, howMuchAmmoIsPresent);
+							SoundsManager.playPlayersSoundFromPlayer(shooter, getReloadSound(), 1f);
+							triggerAnim(shooter, GeoItem.getOrAssignId(stackWithGun, (ServerWorld) world), "shooting_controller", "reload");
+							shooter.getItemCooldownManager().set(this, this.reloadTime);
+						} else {
+							projectileShoot(world, shooter, stackWithGun, hand);
+						}
 					}
 					else {
 						projectileShoot(world, shooter, stackWithGun, hand);
