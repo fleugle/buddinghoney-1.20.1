@@ -1,5 +1,7 @@
 package fleugle.buddinghoney.utility;
 
+import com.terraformersmc.modmenu.util.mod.Mod;
+import fleugle.buddinghoney.enchantments.ModEnchantments;
 import fleugle.buddinghoney.items.custom.CogswordItem;
 import fleugle.buddinghoney.status_effects.ModStatusEffects;
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
@@ -43,6 +45,43 @@ public class AttackEventHandler {
 				{
 					if (target instanceof LivingEntity livingEntityTarget){
 						livingEntityTarget.addStatusEffect(new StatusEffectInstance(ModStatusEffects.BUDDING, 80, 0));
+					}
+
+				}
+
+
+				//Cogsword enchants handler
+				//*
+				//aspiration
+				if (itemStack.getItem() instanceof CogswordItem
+						&& isNotInCD
+						&& hand == Hand.MAIN_HAND
+						&& EnchantmentHelper.getLevel(ModEnchantments.ASPIRATION, itemStack) > 0
+				)
+				{
+					if (target instanceof LivingEntity livingEntityTarget){
+						player.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 40 * EnchantmentHelper.getLevel(ModEnchantments.ASPIRATION, itemStack), 0));
+					}
+
+				}
+				//*
+				//Amethystification
+				if (itemStack.getItem() instanceof CogswordItem
+						&& isNotInCD
+						&& hand == Hand.MAIN_HAND
+						&& EnchantmentHelper.getLevel(ModEnchantments.AMETHYSTIFICATION, itemStack) > 0
+				)
+				{
+					if (target instanceof LivingEntity livingEntityTarget){
+
+
+						if (!livingEntityTarget.hasStatusEffect(ModStatusEffects.AMETHYSTIFICATION)) {
+							player.addStatusEffect(new StatusEffectInstance(ModStatusEffects.AMETHYSTIFICATION, 200, 0));
+						}
+						else if (livingEntityTarget.getStatusEffect(ModStatusEffects.AMETHYSTIFICATION).getAmplifier() < 4){
+							player.addStatusEffect(new StatusEffectInstance(ModStatusEffects.AMETHYSTIFICATION, 200, livingEntityTarget.getStatusEffect(ModStatusEffects.AMETHYSTIFICATION).getAmplifier() + 1));
+						}
+
 					}
 
 				}

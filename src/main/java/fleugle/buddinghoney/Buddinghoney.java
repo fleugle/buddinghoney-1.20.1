@@ -2,6 +2,7 @@ package fleugle.buddinghoney;
 
 import com.chocohead.mm.api.ClassTinkerers;
 import fleugle.buddinghoney.brewing.ModBrewingRecipes;
+import fleugle.buddinghoney.enchantments.ModEnchantments;
 import fleugle.buddinghoney.items.ModItems;
 import fleugle.buddinghoney.sound_events.ModSoundEvents;
 import fleugle.buddinghoney.status_effects.ModStatusEffects;
@@ -35,6 +36,8 @@ public class Buddinghoney implements ModInitializer {
 		ModSoundEvents.initializeSounds();
 
 		ModBrewingRecipes.registerBrewingRecipes();
+
+		ModEnchantments.initialiseModEnchantments();
 
 
 		AttackEventHandler.register();
