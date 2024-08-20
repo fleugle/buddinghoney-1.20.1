@@ -26,7 +26,7 @@ public class AspirationEnchantment extends Enchantment {
 
 	@Override
 	public boolean canAccept(Enchantment other) {
-		return !(/*other instanceof DensityEnchantment ||*/ other instanceof DamageEnchantment);
+		return !(other instanceof AmethystificationEnchantment || other instanceof DesecrationEnchantment || other instanceof DamageEnchantment);
 	}
 
 

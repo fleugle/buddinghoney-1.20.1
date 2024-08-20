@@ -6,9 +6,9 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
 
-public class AmethystificationEnchantment extends Enchantment {
+public class DesecrationEnchantment extends Enchantment {
 
-	public AmethystificationEnchantment() {
+	public DesecrationEnchantment() {
 		super(Rarity.UNCOMMON,
 			ClassTinkerers.getEnum(EnchantmentTarget.class, "COGSWORD")
 			,new EquipmentSlot[] {EquipmentSlot.MAINHAND});
@@ -16,7 +16,7 @@ public class AmethystificationEnchantment extends Enchantment {
 
 	@Override
 	public int getMaxLevel() {
-		return 3;
+		return 5;
 	}
 
 	@Override
@@ -26,7 +26,7 @@ public class AmethystificationEnchantment extends Enchantment {
 
 	@Override
 	public boolean canAccept(Enchantment other) {
-		return !(other instanceof AspirationEnchantment || other instanceof DesecrationEnchantment || other instanceof DamageEnchantment);
+		return !(other instanceof AmethystificationEnchantment || other instanceof AspirationEnchantment || other instanceof DamageEnchantment);
 	}
 
 

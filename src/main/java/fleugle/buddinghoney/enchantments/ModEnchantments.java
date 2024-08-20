@@ -3,6 +3,7 @@ package fleugle.buddinghoney.enchantments;
 import fleugle.buddinghoney.Buddinghoney;
 import fleugle.buddinghoney.enchantments.custom.AmethystificationEnchantment;
 import fleugle.buddinghoney.enchantments.custom.AspirationEnchantment;
+import fleugle.buddinghoney.enchantments.custom.DesecrationEnchantment;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -16,6 +17,9 @@ public class ModEnchantments {
 
 	public static final Enchantment AMETHYSTIFICATION = new AmethystificationEnchantment();
 
+	public static final Enchantment DESECRATION = new DesecrationEnchantment();
+
+
 
 	static Enchantment registerEnchantment(String name, Enchantment enchantment){
 		return Registry.register(Registries.ENCHANTMENT, new Identifier(Buddinghoney.MOD_ID, name), enchantment);
@@ -27,5 +31,6 @@ public class ModEnchantments {
 
 		registerEnchantment("aspiration", ASPIRATION);
 		registerEnchantment("amethystification", AMETHYSTIFICATION);
+		registerEnchantment("desecration", DESECRATION);
 	}
 }

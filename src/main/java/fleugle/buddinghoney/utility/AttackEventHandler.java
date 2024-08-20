@@ -9,6 +9,9 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.EntityAttributeInstance;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
@@ -80,6 +83,32 @@ public class AttackEventHandler {
 						}
 						else if (livingEntityTarget.getStatusEffect(ModStatusEffects.AMETHYSTIFICATION).getAmplifier() < 4){
 							player.addStatusEffect(new StatusEffectInstance(ModStatusEffects.AMETHYSTIFICATION, 200, livingEntityTarget.getStatusEffect(ModStatusEffects.AMETHYSTIFICATION).getAmplifier() + 1));
+						}
+
+					}
+
+				}
+				//*
+				//Desecration
+				if (itemStack.getItem() instanceof CogswordItem
+						&& isNotInCD
+						&& hand == Hand.MAIN_HAND
+						&& EnchantmentHelper.getLevel(ModEnchantments.DESECRATION, itemStack) > 0
+				)
+				{
+					if (target instanceof LivingEntity livingEntityTarget){
+
+
+						EntityAttributeInstance attackDamage = player.getAttributeInstance(EntityAttributes.GENERIC_ATTACK_DAMAGE);
+
+						if (attackDamage != null ){
+							int multiplier = EnchantmentHelper.getLevel(ModEnchantments.DESECRATION, itemStack);
+							attackDamage.addTemporaryModifier( new EntityAttributeModifier(
+									UUID.fromString("A23B67E4-5D8C-4F2B-83D4-7E81F65B8D33"),
+									"desecrationDamageModifier",
+									(0.1 * multiplier),
+									EntityAttributeModifier.Operation.MULTIPLY_TOTAL
+							));
 						}
 
 					}

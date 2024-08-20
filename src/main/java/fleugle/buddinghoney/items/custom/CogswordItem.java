@@ -15,9 +15,12 @@ import mod.azure.azurelib.util.AzureLibUtil;
 import net.minecraft.client.render.item.BuiltinModelItemRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttribute;
+import net.minecraft.entity.attribute.EntityAttributeInstance;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
@@ -25,6 +28,7 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.world.World;
 
+import java.util.UUID;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
@@ -120,7 +124,39 @@ public class CogswordItem extends Item implements GeoItem {
 
             tag.putBoolean(COGSWORD_AMETHYST_TAG, this.isAmethyst);
 
+            if (entity instanceof PlayerEntity player) {
+                EntityAttributeInstance attackDamage = player.getAttributeInstance(EntityAttributes.GENERIC_ATTACK_DAMAGE);
+                if (attackDamage != null){
+                    EntityAttributeModifier maceAttackDamageModifier = attackDamage.getModifier(UUID.fromString("A23B67E4-5D8C-4F2B-83D4-7E81F65B8D33"));
+
+                    if (maceAttackDamageModifier != null){
+                        attackDamage.removeModifier(maceAttackDamageModifier);
+                    }
+
+                }
+            }
+
         }
+    }
+
+    @Override
+    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+
+        stack.damage(1, attacker, e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
+
+        EntityAttributeInstance attackDamage = attacker.getAttributeInstance(EntityAttributes.GENERIC_ATTACK_DAMAGE);
+
+        if (attackDamage != null){
+            EntityAttributeModifier desecrationModifier = attackDamage.getModifier(UUID.fromString("F12A54D2-3A9B-4D1A-92C3-6C72E75A9C22"));
+
+            if (desecrationModifier != null){
+                attackDamage.removeModifier(desecrationModifier);
+            }
+
+        }
+
+        return super.postHit(stack, target, attacker);
+
     }
 
 
