@@ -16,12 +16,7 @@ public class ModStatusEffects {
 
 	public static final StatusEffect BUDDING = new BuddingStatusEffect();
 
-	public static final StatusEffect AMETHYSTIFICATION = new AmethystificationStatusEffect()
-			.addAttributeModifier(
-			EntityAttributes.GENERIC_ATTACK_SPEED,
-			"F0E1D2C3-B4A5-6789-0123-456789ABCDEF",
-			-0.15F * AmethystificationStatusEffect.amplifier, EntityAttributeModifier.Operation.MULTIPLY_TOTAL
-	);
+	public static final StatusEffect AMETHYSTIFICATION = new AmethystificationStatusEffect();
 
 
 

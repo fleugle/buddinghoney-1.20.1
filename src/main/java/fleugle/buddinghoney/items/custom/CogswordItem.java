@@ -87,7 +87,7 @@ public class CogswordItem extends Item implements GeoItem {
         return renderProvider;
     }
 
-    public static final String COGSWORD_AMETHYST_TAG = "isAmethystCockSword";
+    public static final String COGSWORD_AMETHYST_TAG = "isAmethystCogSword";
 
     private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
 
@@ -147,7 +147,7 @@ public class CogswordItem extends Item implements GeoItem {
         EntityAttributeInstance attackDamage = attacker.getAttributeInstance(EntityAttributes.GENERIC_ATTACK_DAMAGE);
 
         if (attackDamage != null){
-            EntityAttributeModifier desecrationModifier = attackDamage.getModifier(UUID.fromString("F12A54D2-3A9B-4D1A-92C3-6C72E75A9C22"));
+            EntityAttributeModifier desecrationModifier = attackDamage.getModifier(UUID.fromString("A23B67E4-5D8C-4F2B-83D4-7E81F65B8D33"));
 
             if (desecrationModifier != null){
                 attackDamage.removeModifier(desecrationModifier);
