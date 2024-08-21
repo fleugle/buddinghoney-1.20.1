@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "minecraft:honeycomb"
+    },
+    "B": {
+      "item": "buddinghoney:xenotime"
+    },
+    "C": {
+      "item": "minecraft:tripwire_hook"
+    },
+    "H": {
+      "item": "buddinghoney:beestanite"
+    },
+    "S": {
+      "item": "buddinghoney:completedhoneycombcore"
+    }
+  },
+  "pattern": [
+    "SHA",
+    "BC "
+  ],
+  "result": {
+    "item": "buddinghoney:honeycomb_shotgun"
+  },
+  "show_notification": true
+}

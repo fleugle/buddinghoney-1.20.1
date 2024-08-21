@@ -5,12 +5,12 @@ import fleugle.buddinghoney.items.custom.AmethystShotgunItem;
 import fleugle.buddinghoney.items.custom.CogswordItem;
 import fleugle.buddinghoney.items.custom.HoneycombShotgunItem;
 import fleugle.buddinghoney.utility.ModToolMaterial;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroups;
-import net.minecraft.item.SmithingTemplateItem;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
@@ -19,6 +19,14 @@ import net.minecraft.util.Util;
 import java.util.List;
 
 public class ModItems {
+
+
+    public static final RegistryKey<ItemGroup> BUDDINGHONEY_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), new Identifier(Buddinghoney.MOD_ID, "item_group"));
+    public static final ItemGroup BUDDINGHONEY_ITEM_GROUP = FabricItemGroup.builder()
+            .icon(() -> new ItemStack(ModItems.AMETHYST_UPGRADE_SMITHING_TEMPLATE))
+            .displayName(Text.translatable("item_group.buddinghoney"))
+            .build();
+
 
 
     public static final Item BEESTANITE = registerItem("beestanite", new Item(new Item.Settings()));
@@ -82,6 +90,35 @@ public class ModItems {
 
     public static void registerModItems(){
 
+        Registry.register(Registries.ITEM_GROUP, BUDDINGHONEY_ITEM_GROUP_KEY, BUDDINGHONEY_ITEM_GROUP);
+
+
+        //INGREDIENTS TAB ITEMS REGISTRY
+        ItemGroupEvents.modifyEntriesEvent(BUDDINGHONEY_ITEM_GROUP_KEY).register(entries -> {
+
+            entries.add(BEESTANITE);
+            entries.add(XENOTIME);
+            entries.add(CHAROITE);
+            entries.add(HONEYCOMB_CORE);
+            entries.add(C_HONEYCOMB_CORE);
+            entries.add(SMALL_COG);
+            entries.add(SCISSORS_BLADE);
+
+
+            entries.add(AMETHYST_UPGRADE_SMITHING_TEMPLATE);
+
+
+            entries.add(COGSWORD);
+            entries.add(AMETHYST_COGSWORD);
+
+            entries.add(HONEYCOMB_SHOTGUN);
+            entries.add(BEESTANITE_BULLET);
+
+            entries.add(AMETHYST_SHOTGUN);
+            entries.add(AMETHYST_BULLET);
+
+        });
+
         //TOOLS AND UTILITIES TAB ITEMS REGISTRY
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> {
 
@@ -98,9 +135,9 @@ public class ModItems {
             entries.add(C_HONEYCOMB_CORE);
             entries.add(SMALL_COG);
             entries.add(SCISSORS_BLADE);
-
-
             entries.add(AMETHYST_UPGRADE_SMITHING_TEMPLATE);
+
+
 
         });
 

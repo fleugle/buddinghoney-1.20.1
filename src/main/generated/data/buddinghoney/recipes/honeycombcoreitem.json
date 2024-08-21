@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "buddinghoney:xenotime"
+    },
+    "H": {
+      "item": "minecraft:honeycomb"
+    },
+    "S": {
+      "item": "minecraft:honey_block"
+    }
+  },
+  "pattern": [
+    "SBS",
+    "SHS",
+    "SBS"
+  ],
+  "result": {
+    "item": "buddinghoney:honeycombcoreitem"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "H": {
+      "item": "buddinghoney:honeycombcoreitem"
+    },
+    "S": {
+      "item": "buddinghoney:beestanite"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "SHS",
+    "SSS"
+  ],
+  "result": {
+    "item": "buddinghoney:completedhoneycombcore"
+  },
+  "show_notification": true
+}
