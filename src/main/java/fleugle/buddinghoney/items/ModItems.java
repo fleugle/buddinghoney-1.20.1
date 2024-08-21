@@ -23,17 +23,34 @@ public class ModItems {
 
     public static final Item BEESTANITE = registerItem("beestanite", new Item(new Item.Settings()));
 
-    public static final Item BEESTANITE_BULLET = registerItem("beestanite_bullet",  new Item(new Item.Settings()));
+    public static final Item XENOTIME = registerItem("xenotime", new Item(new Item.Settings()));
 
-    public static final Item AMETHYST_BULLET = registerItem("amethyst_bullet",  new Item(new Item.Settings()));
+    public static final Item CHAROITE = registerItem("charoite", new Item(new Item.Settings()));
 
-    public static final Item COGSWORD = registerItem("cogsword", new CogswordItem(ModToolMaterial.BEESTANITE,2.6f, -2.4f,new Item.Settings(), false));
+    public static final Item C_HONEYCOMB_CORE = registerItem("completedhoneycombcore", new Item(new Item.Settings()));
 
-    public static final Item AMETHYST_COGSWORD = registerItem("amethyst_cogsword", new CogswordItem(ModToolMaterial.BEESTANITE,2.6f, -2.4f,new Item.Settings(), true));
+    public static final Item HONEYCOMB_CORE = registerItem("honeycombcoreitem", new Item(new Item.Settings()));
 
-    public static final Item HONEYCOMB_SHOTGUN = registerItem("honeycomb_shotgun", new HoneycombShotgunItem(new Item.Settings(), false));
+    public static final Item SMALL_COG = registerItem("smallcog", new Item(new Item.Settings()));
 
-    public static final Item AMETHYST_SHOTGUN = registerItem("amethyst_shotgun", new AmethystShotgunItem(new Item.Settings(), true));
+    public static final Item SCISSORS_BLADE = registerItem("scissorsblade", new Item(new Item.Settings()));
+
+
+
+
+
+
+    public static final Item BEESTANITE_BULLET = registerItem("beestanite_bullet",  new Item(new Item.Settings().maxCount(16)));
+
+    public static final Item AMETHYST_BULLET = registerItem("amethyst_bullet",  new Item(new Item.Settings().maxCount(16)));
+
+    public static final Item COGSWORD = registerItem("cogsword", new CogswordItem(ModToolMaterial.BEESTANITE,2f, -2.4f,new Item.Settings().maxCount(1), false));
+
+    public static final Item AMETHYST_COGSWORD = registerItem("amethyst_cogsword", new CogswordItem(ModToolMaterial.BEESTANITE,2.6f, -2.4f,new Item.Settings().maxCount(1), true));
+
+    public static final Item HONEYCOMB_SHOTGUN = registerItem("honeycomb_shotgun", new HoneycombShotgunItem(new Item.Settings().maxCount(1), false));
+
+    public static final Item AMETHYST_SHOTGUN = registerItem("amethyst_shotgun", new AmethystShotgunItem(new Item.Settings().maxCount(1), true));
 
 
     public static final Item AMETHYST_UPGRADE_SMITHING_TEMPLATE = registerItem("amethyst_upgrade_smithing_template", new SmithingTemplateItem(
@@ -75,6 +92,13 @@ public class ModItems {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
 
             entries.add(BEESTANITE);
+            entries.add(XENOTIME);
+            entries.add(CHAROITE);
+            entries.add(HONEYCOMB_CORE);
+            entries.add(C_HONEYCOMB_CORE);
+            entries.add(SMALL_COG);
+            entries.add(SCISSORS_BLADE);
+
 
             entries.add(AMETHYST_UPGRADE_SMITHING_TEMPLATE);
 

@@ -1,5 +1,5 @@
 {
-  "parent": "honeycomb_industrials:custom/small_cog",
+  "parent": "buddinghoney:custom/small_cog",
   "textures": {
     "1": "buddinghoney:block/small_cog",
     "particle": "buddinghoney:item/cog_small"

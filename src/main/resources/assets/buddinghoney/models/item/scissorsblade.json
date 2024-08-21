@@ -1,7 +1,7 @@
 {
-  "parent": "honeycomb_industrials:custom/scissor_blades",
+  "parent": "buddinghoney:custom/scissor_blades",
   "textures": {
-    "1": "honeycomb_industrials:block/cog_scissors",
-    "particle": "honeycomb_industrials:item/cog_scissors"
+    "1": "buddinghoney:block/cog_scissors",
+    "particle": "buddinghoney:item/cog_scissors"
   }
 }

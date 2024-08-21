@@ -1,8 +1,8 @@
 {
-  "item.honeycomb_industrials.xenotime": "Xenotime",
+  "item.buddinghoney.xenotime": "Xenotime",
+  "item.buddinghoney.charoite": "Charonite",
   "item.buddinghoney.beestanite": "Beestanite",
   "item.buddinghoney.honeycombcoreitem": "Honeycomb core",
-  "item.buddinghoney.xenotime": "Xenotime",
   "item.buddinghoney.completedhoneycombcore": "Completed honeycomb core",
   "item.buddinghoney.amethyst_catalyst": "Amethyst Catalyst",
   "item.buddinghoney.smallcog": "Small cog",
@@ -20,9 +20,9 @@
 
 
 
-  "item.buddinghoney.smithing_template.amethyst_upgrade.additions_slot_description": "Add Amethyst Shards",
+  "item.buddinghoney.smithing_template.amethyst_upgrade.additions_slot_description": "Add Charonite or Amethyst Shards",
   "item.buddinghoney.smithing_template.amethyst_upgrade.applies_to": "Beestanite tools",
   "item.buddinghoney.smithing_template.amethyst_upgrade.base_slot_description": "Add a Beestanite tool",
-  "item.buddinghoney.smithing_template.amethyst_upgrade.ingredients": "Amethyst Shards",
+  "item.buddinghoney.smithing_template.amethyst_upgrade.ingredients": "Amethyst Shards, Charonite",
   "upgrade.buddinghoney.amethyst_upgrade": "Amethyst Upgrade"
 }

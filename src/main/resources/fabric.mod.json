@@ -9,12 +9,15 @@
 	],
 	"contact": {
 		"homepage": "nah",
-		"sources": "NUH ah"
+		"sources": "https://github.com/fleugle/buddinghoney-1.20.1"
 	},
 	"license": "very illegal",
 	"icon": "assets/buddinghoney/icon.png",
 	"environment": "*",
 	"entrypoints": {
+		"fabric-datagen": [
+			"fleugle.buddinghoney.BuddinghoneyDataGenerator"
+		],
 		"main": [
 			"fleugle.buddinghoney.Buddinghoney"
 		],

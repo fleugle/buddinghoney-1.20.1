@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smithing_transform",
   "addition": {
-    "item": "minecraft:amethyst_shard"
+    "item": "buddinghoney:charoite"
   },
   "base": {
     "item": "buddinghoney:cogsword"

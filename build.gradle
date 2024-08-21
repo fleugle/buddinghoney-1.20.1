@@ -102,3 +102,7 @@ publishing {
 loom {
 	accessWidenerPath = file("src/main/resources/buddinghoney.accesswidener")
 }
+
+fabricApi {
+	configureDataGeneration()
+}
