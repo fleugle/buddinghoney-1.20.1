@@ -4,6 +4,7 @@ import com.google.common.collect.Sets;
 import fleugle.buddinghoney.Buddinghoney;
 import fleugle.buddinghoney.damage_types.ModDamageTypes;
 import fleugle.buddinghoney.entities.ModEntityTypes;
+import fleugle.buddinghoney.particles.ModParticleTypes;
 import fleugle.buddinghoney.utility.SoundsManager;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -99,14 +100,14 @@ public class BeestaniteBulletEntity extends ThrownItemEntity {
 					if (entityHitResult.getEntity() instanceof LivingEntity && entityHitResult.getEntity() != this.user) {
 						LivingEntity target = (LivingEntity) entityHitResult.getEntity();
 
-						/*if (this.world instanceof ServerWorld serverWorld) {
-							BlockPos pos = BlockPos.ofFloored(this.getPos());
-							serverWorld.spawnParticles(DustParticleEffect.DEFAULT,
-									pos.getX()  + 0.5,
-									pos.getY()  + 0.5,
-									pos.getZ()  + 0.5,
-									100, 0.5, 0.5, 0.5, 0);
-						}*/
+						if (this.world instanceof ServerWorld serverWorld) {
+							Vec3d pos = target.getPos();
+							serverWorld.spawnParticles(ModParticleTypes.BEESTANITE_BOOM,
+									pos.x,
+									pos.y + target.getHeight()/2 + 0.1,
+									pos.z,
+									1, 0, 0, 0, 0);
+						}
 
 						DamageSource source = new DamageSource(
 								user.getWorld().getRegistryManager()
@@ -116,7 +117,7 @@ public class BeestaniteBulletEntity extends ThrownItemEntity {
 
 						target.damage(source, 7);
 						target.takeKnockback(
-								1F, (double)MathHelper.sin(this.getYaw() * (float) (Math.PI / 180.0)), (double)(-MathHelper.cos(this.getYaw() * (float) (Math.PI / 180.0)))
+								2F, (double)MathHelper.sin(user.getYaw() * (float) (Math.PI / 180.0)), (double)(-MathHelper.cos(user.getYaw() * (float) (Math.PI / 180.0)))
 						);
 
 

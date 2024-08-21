@@ -1,7 +1,5 @@
 package fleugle.buddinghoney.status_effects.custom;
 
-import fleugle.buddinghoney.enchantments.ModEnchantments;
-import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributeInstance;
@@ -12,9 +10,9 @@ import net.minecraft.entity.effect.StatusEffectCategory;
 
 import java.util.UUID;
 
-public class AmethystificationStatusEffect extends StatusEffect {
+public class RustingStatusEffect extends StatusEffect {
 
-    public AmethystificationStatusEffect() {
+    public RustingStatusEffect() {
         super(
                 StatusEffectCategory.HARMFUL,
                 0x490441
@@ -47,23 +45,23 @@ public class AmethystificationStatusEffect extends StatusEffect {
 
         super.onApplied(entity, attributes, amplifier);
 
-        EntityAttributeInstance attackSpeed = entity.getAttributeInstance(EntityAttributes.GENERIC_ATTACK_SPEED);
+        EntityAttributeInstance movementSpeedAttribute = entity.getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED);
 
-        if (attackSpeed != null){
-            EntityAttributeModifier amethystificationModifier = attackSpeed.getModifier(UUID.fromString("468235C6-A817-4ACD-8168-9A4A73029299"));
+        if (movementSpeedAttribute != null){
+            EntityAttributeModifier rustingModifier = movementSpeedAttribute.getModifier(UUID.fromString("6E5BD009-3D93-4DED-AA6B-0F89003526B7"));
 
-            if (amethystificationModifier != null){
-                attackSpeed.removeModifier(amethystificationModifier);
+            if (rustingModifier != null){
+                movementSpeedAttribute.removeModifier(rustingModifier);
             }
 
         }
 
-        if (attackSpeed != null ){
+        if (movementSpeedAttribute != null ){
 
-            attackSpeed.addTemporaryModifier( new EntityAttributeModifier(
-                    UUID.fromString("468235C6-A817-4ACD-8168-9A4A73029299"),
-                    "amethystificationAttackSpeedModifier",
-                    (-0.1 * (amplifier + 1)),
+            movementSpeedAttribute.addTemporaryModifier( new EntityAttributeModifier(
+                    UUID.fromString("6E5BD009-3D93-4DED-AA6B-0F89003526B7"),
+                    "rustingSpeedModifier",
+                    (-0.15 * (amplifier + 1)),
                     EntityAttributeModifier.Operation.MULTIPLY_TOTAL
             ));
         }
@@ -79,13 +77,13 @@ public class AmethystificationStatusEffect extends StatusEffect {
     public void onRemoved(LivingEntity entity, AttributeContainer attributes, int amplifier) {
         super.onRemoved(entity, attributes, amplifier);
 
-        EntityAttributeInstance attackSpeed = entity.getAttributeInstance(EntityAttributes.GENERIC_ATTACK_SPEED);
+        EntityAttributeInstance movementSpeedAttribute = entity.getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED);
 
-        if (attackSpeed != null){
-            EntityAttributeModifier amethystificationModifier = attackSpeed.getModifier(UUID.fromString("468235C6-A817-4ACD-8168-9A4A73029299"));
+        if (movementSpeedAttribute != null){
+            EntityAttributeModifier rustingModifier = movementSpeedAttribute.getModifier(UUID.fromString("6E5BD009-3D93-4DED-AA6B-0F89003526B7"));
 
-            if (amethystificationModifier != null){
-                attackSpeed.removeModifier(amethystificationModifier);
+            if (rustingModifier != null){
+                movementSpeedAttribute.removeModifier(rustingModifier);
             }
 
         }

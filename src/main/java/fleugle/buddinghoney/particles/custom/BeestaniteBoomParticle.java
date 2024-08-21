@@ -10,8 +10,8 @@ import net.minecraft.client.world.ClientWorld;
 import net.minecraft.particle.DefaultParticleType;
 
 @Environment(EnvType.CLIENT)
-public class AmethystBoomParticle extends ExplosionLargeParticle {
-	protected AmethystBoomParticle(ClientWorld clientWorld, double d, double e, double f, double g, SpriteProvider spriteProvider) {
+public class BeestaniteBoomParticle extends ExplosionLargeParticle {
+	protected BeestaniteBoomParticle(ClientWorld clientWorld, double d, double e, double f, double g, SpriteProvider spriteProvider) {
 		super(clientWorld, d, e, f, g, spriteProvider);
 		this.maxAge = 9;
 		this.scale = 2F;
@@ -27,7 +27,7 @@ public class AmethystBoomParticle extends ExplosionLargeParticle {
 		}
 
 		public Particle createParticle(DefaultParticleType defaultParticleType, ClientWorld clientWorld, double d, double e, double f, double g, double h, double i) {
-			return new AmethystBoomParticle(clientWorld, d, e, f, g, this.spriteProvider);
+			return new BeestaniteBoomParticle(clientWorld, d, e, f, g, this.spriteProvider);
 		}
 	}
 }

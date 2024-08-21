@@ -4,6 +4,7 @@ import fleugle.buddinghoney.Buddinghoney;
 import fleugle.buddinghoney.damage_types.ModDamageTypes;
 import fleugle.buddinghoney.entities.ModEntityTypes;
 import fleugle.buddinghoney.particles.ModParticleTypes;
+import fleugle.buddinghoney.status_effects.ModStatusEffects;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
@@ -12,6 +13,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileUtil;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
@@ -99,7 +101,7 @@ public class AmethystBulletEntity extends ThrownItemEntity {
 							Vec3d pos = target.getPos();
 							serverWorld.spawnParticles(ModParticleTypes.AMETHYST_BOOM,
 									pos.x,
-									pos.y  + 0,
+									pos.y  + target.getHeight()/2 + 0.1,
 									pos.z,
 									1, 0, 0, 0, 0);
 						}
@@ -112,8 +114,9 @@ public class AmethystBulletEntity extends ThrownItemEntity {
 
 						target.damage(source, 7);
 						target.takeKnockback(
-								1F, (double)MathHelper.sin(this.getYaw() * (float) (Math.PI / 180.0)), (double)(-MathHelper.cos(this.getYaw() * (float) (Math.PI / 180.0)))
+								1F, (double)MathHelper.sin(user.getYaw() * (float) (Math.PI / 180.0)), (double)(-MathHelper.cos(user.getYaw() * (float) (Math.PI / 180.0)))
 						);
+						target.setStatusEffect(new StatusEffectInstance(ModStatusEffects.BUDDING, 40, 0, false, true, true), user);
 
 
 						Buddinghoney.LOGGER.info("Collide with entity");

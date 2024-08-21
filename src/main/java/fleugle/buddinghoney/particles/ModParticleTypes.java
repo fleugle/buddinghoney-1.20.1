@@ -13,6 +13,7 @@ public class ModParticleTypes {
 
 	public static final DefaultParticleType AMETHYST_BOOM = FabricParticleTypes.simple();
 	//public static final DefaultParticleType JUSTICE_HIT = FabricParticleTypes.simple();
+	public static final DefaultParticleType BEESTANITE_BOOM = FabricParticleTypes.simple();
 
 	static DefaultParticleType modParticleTypesRegistry(String name, DefaultParticleType particleType){
 		return Registry.register(Registries.PARTICLE_TYPE, new Identifier(Buddinghoney.MOD_ID, name), particleType);
@@ -26,6 +27,8 @@ public class ModParticleTypes {
 
 		//modParticleTypesRegistry("name", FabricParticleTypes.simple()); -> for simple particles
 		modParticleTypesRegistry("amethyst_boom", AMETHYST_BOOM);
+		modParticleTypesRegistry("beestanite_boom", BEESTANITE_BOOM);
+
 		//modParticleTypesRegistry("justice_hit", JUSTICE_HIT);
 
 	}

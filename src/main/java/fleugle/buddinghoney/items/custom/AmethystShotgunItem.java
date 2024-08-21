@@ -35,7 +35,7 @@ public class AmethystShotgunItem extends AbstractGunItem {
         super(
                 2,
                 10,
-                80,
+                40,
                 "§dYou need to charge it",
                 "§2 - Deals 5 damage. Applies \"Budding\" effect on hit.",
                 "§2 - Amethyst Bullet",

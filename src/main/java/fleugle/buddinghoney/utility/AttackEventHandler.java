@@ -50,6 +50,22 @@ public class AttackEventHandler {
 						livingEntityTarget.addStatusEffect(new StatusEffectInstance(ModStatusEffects.BUDDING, 80, 0));
 					}
 
+				} else if (itemStack.getItem() instanceof CogswordItem
+						&& isNotInCD
+						&& hand == Hand.MAIN_HAND
+						&& !tag.getBoolean(CogswordItem.COGSWORD_AMETHYST_TAG)) {
+					if (target instanceof LivingEntity livingEntityTarget){
+
+
+						if (!livingEntityTarget.hasStatusEffect(ModStatusEffects.RUSTING)) {
+							livingEntityTarget.addStatusEffect(new StatusEffectInstance(ModStatusEffects.RUSTING, 200, 0));
+						}
+						else if (livingEntityTarget.getStatusEffect(ModStatusEffects.RUSTING).getAmplifier() < 2){
+							livingEntityTarget.addStatusEffect(new StatusEffectInstance(ModStatusEffects.RUSTING, 200, livingEntityTarget.getStatusEffect(ModStatusEffects.RUSTING).getAmplifier() + 1));
+						}
+
+					}
+
 				}
 
 
@@ -79,10 +95,10 @@ public class AttackEventHandler {
 
 
 						if (!livingEntityTarget.hasStatusEffect(ModStatusEffects.AMETHYSTIFICATION)) {
-							player.addStatusEffect(new StatusEffectInstance(ModStatusEffects.AMETHYSTIFICATION, 200, 0));
+							livingEntityTarget.addStatusEffect(new StatusEffectInstance(ModStatusEffects.AMETHYSTIFICATION, 200, 0));
 						}
 						else if (livingEntityTarget.getStatusEffect(ModStatusEffects.AMETHYSTIFICATION).getAmplifier() < 4){
-							player.addStatusEffect(new StatusEffectInstance(ModStatusEffects.AMETHYSTIFICATION, 200, livingEntityTarget.getStatusEffect(ModStatusEffects.AMETHYSTIFICATION).getAmplifier() + 1));
+							livingEntityTarget.addStatusEffect(new StatusEffectInstance(ModStatusEffects.AMETHYSTIFICATION, 200, livingEntityTarget.getStatusEffect(ModStatusEffects.AMETHYSTIFICATION).getAmplifier() + 1));
 						}
 
 					}

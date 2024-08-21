@@ -3,6 +3,7 @@ package fleugle.buddinghoney.status_effects;
 import fleugle.buddinghoney.Buddinghoney;
 import fleugle.buddinghoney.status_effects.custom.BuddingStatusEffect;
 import fleugle.buddinghoney.status_effects.custom.AmethystificationStatusEffect;
+import fleugle.buddinghoney.status_effects.custom.RustingStatusEffect;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffect;
@@ -18,6 +19,8 @@ public class ModStatusEffects {
 
 	public static final StatusEffect AMETHYSTIFICATION = new AmethystificationStatusEffect();
 
+	public static final StatusEffect RUSTING = new RustingStatusEffect();
+
 
 
 	private static StatusEffect registerStatusEffect(String name, StatusEffect statusEffect){
@@ -28,6 +31,9 @@ public class ModStatusEffects {
 		registerStatusEffect("budding", BUDDING);
 
 		registerStatusEffect("amethystification", AMETHYSTIFICATION);
+
+		registerStatusEffect("rusting", RUSTING);
+
 
 	}
 }
