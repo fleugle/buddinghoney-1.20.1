@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "H": {
+      "item": "buddinghoney:beestanite"
+    },
+    "S": {
+      "item": "buddinghoney:charoite"
+    }
+  },
+  "pattern": [
+    "S",
+    "H"
+  ],
+  "result": {
+    "item": "buddinghoney:beestanite_bullet"
+  },
+  "show_notification": true
+}

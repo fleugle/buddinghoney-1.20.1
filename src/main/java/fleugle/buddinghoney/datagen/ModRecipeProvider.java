@@ -57,6 +57,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 				.criterion(hasItem(ModItems.BEESTANITE), conditionsFromItem(ModItems.BEESTANITE))
 				.offerTo(exporter, new Identifier(getRecipeName( ModItems.C_HONEYCOMB_CORE)));
 
+		ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.BEESTANITE_BULLET, 1)
+				.pattern("S")
+				.pattern("H")
+				.input('S', ModItems.CHAROITE)
+				.input('H', ModItems.BEESTANITE)
+
+
+				.criterion(hasItem(ModItems.BEESTANITE), conditionsFromItem(ModItems.BEESTANITE))
+				.offerTo(exporter, new Identifier(getRecipeName( ModItems.BEESTANITE_BULLET)));
+
 
 		ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.HONEYCOMB_SHOTGUN, 1)
 				.pattern("SHA")
@@ -76,11 +86,25 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
 
 
-		/*ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.WAXED_COPPER_DOOR)
-			.ingredient(ModBlocks.COPPER_DOOR)
-			.ingredient(Items.HONEYCOMB)
-			.criterion(hasItem(ModBlocks.COPPER_DOOR), conditionsFromItem(ModBlocks.COPPER_DOOR))
-			.offerTo(exporter, new Identifier(getRecipeName(ModBlocks.WAXED_COPPER_DOOR)));*/
+		ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.BEESTANITE)
+			.input(ModItems.XENOTIME)
+			.input(Items.HONEYCOMB)
+				.criterion(hasItem(ModItems.XENOTIME), conditionsFromItem(ModItems.XENOTIME))
+			.offerTo(exporter, new Identifier(getRecipeName(ModItems.BEESTANITE)));
+
+
+		ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.QWARTZATHYST)
+				.input(Items.AMETHYST_SHARD)
+				.input(Items.QUARTZ)
+				.criterion(hasItem(Items.AMETHYST_SHARD), conditionsFromItem(Items.AMETHYST_SHARD))
+				.offerTo(exporter, new Identifier(getRecipeName(ModItems.QWARTZATHYST)));
+
+		ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.AMETHYST_UPGRADE_SMITHING_TEMPLATE)
+				.input(ModItems.QWARTZATHYST)
+				.input(ModItems.BEESTANITE)
+				.criterion(hasItem(ModItems.QWARTZATHYST), conditionsFromItem(ModItems.QWARTZATHYST))
+				.offerTo(exporter, new Identifier(getRecipeName(ModItems.AMETHYST_UPGRADE_SMITHING_TEMPLATE)));
+
 
 
 	}

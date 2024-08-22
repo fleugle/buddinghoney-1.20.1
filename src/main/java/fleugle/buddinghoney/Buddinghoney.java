@@ -52,5 +52,6 @@ public class Buddinghoney implements ModInitializer {
 
 		LOGGER.info("People say honey is for loosers in pvp? HAHAHAHA, it's not the purpose! Honey mixed with amethyst is a drug! So the reason is drug dealing, yippee! (Goodbye high-school hello drug dealing!)");
 
+		LOGGER.error("Oh noo, I've lost my cocainer 😖");
 	}
 }

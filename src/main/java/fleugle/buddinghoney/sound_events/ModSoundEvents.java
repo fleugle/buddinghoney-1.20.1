@@ -18,6 +18,9 @@ public class ModSoundEvents {
 
 	public static SoundEvent EMPTY_GUN_SHOT = registerSound("empty_gun_shot");
 
+    public static SoundEvent EMPTY_SHOTGUN_SHOT = registerSound("empty_shotgun_shot");
+
+
 
 
 	// actual registration of all the custom SoundEvents

@@ -43,6 +43,8 @@ public class ModItems {
 
     public static final Item SCISSORS_BLADE = registerItem("scissorsblade", new Item(new Item.Settings()));
 
+    public static final Item QWARTZATHYST = registerItem("qwartzathyst", new Item(new Item.Settings()));
+
 
 
 
@@ -93,7 +95,7 @@ public class ModItems {
         Registry.register(Registries.ITEM_GROUP, BUDDINGHONEY_ITEM_GROUP_KEY, BUDDINGHONEY_ITEM_GROUP);
 
 
-        //INGREDIENTS TAB ITEMS REGISTRY
+        //BUDDINGHONEY_ITEM_GROUP
         ItemGroupEvents.modifyEntriesEvent(BUDDINGHONEY_ITEM_GROUP_KEY).register(entries -> {
 
             entries.add(BEESTANITE);
@@ -102,8 +104,8 @@ public class ModItems {
             entries.add(HONEYCOMB_CORE);
             entries.add(C_HONEYCOMB_CORE);
             entries.add(SMALL_COG);
-            entries.add(SCISSORS_BLADE);
-
+            //entries.add(SCISSORS_BLADE);
+            entries.add(QWARTZATHYST);
 
             entries.add(AMETHYST_UPGRADE_SMITHING_TEMPLATE);
 
@@ -116,6 +118,7 @@ public class ModItems {
 
             entries.add(AMETHYST_SHOTGUN);
             entries.add(AMETHYST_BULLET);
+
 
         });
 
@@ -134,7 +137,7 @@ public class ModItems {
             entries.add(HONEYCOMB_CORE);
             entries.add(C_HONEYCOMB_CORE);
             entries.add(SMALL_COG);
-            entries.add(SCISSORS_BLADE);
+            //entries.add(SCISSORS_BLADE);
             entries.add(AMETHYST_UPGRADE_SMITHING_TEMPLATE);
 
 

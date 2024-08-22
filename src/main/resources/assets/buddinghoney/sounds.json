@@ -1,0 +1,33 @@
+{
+
+  "empty_gun_shot": {
+    "sounds": [
+      "buddinghoney:empty_gun_shot"
+    ]
+  },
+  "empty_shotgun_shot": {
+    "sounds": [
+      "buddinghoney:empty_shotgun_shot"
+    ]
+  },
+  "d_shotgun_sh": {
+    "sounds": [
+      "buddinghoney:d_shotgun_sh"
+    ]
+  },
+  "a_shotgun_sh": {
+    "sounds": [
+      "buddinghoney:a_shotgun_sh"
+    ]
+  },
+  "d_shotgun_r": {
+    "sounds": [
+      "buddinghoney:d_shotgun_r"
+    ]
+  },
+  "a_shotgun_r": {
+    "sounds": [
+      "buddinghoney:a_shotgun_r"
+    ]
+  }
+}

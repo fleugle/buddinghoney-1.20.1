@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:amethyst_shard"
+  },
+  "base": {
+    "item": "buddinghoney:beestanite_bullet"
+  },
+  "result": {
+    "item": "buddinghoney:amethyst_bullet"
+  },
+  "template": {
+    "item": "buddinghoney:amethyst_upgrade_smithing_template"
+  }
+}
